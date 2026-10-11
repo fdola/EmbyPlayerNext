@@ -192,9 +192,13 @@ fun PlayerScreen(
         val window = activity?.window
         val insetsController = window?.let { WindowCompat.getInsetsController(it, it.decorView) }
         insetsController?.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        insetsController?.isAppearanceLightStatusBars = false
+        insetsController?.isAppearanceLightNavigationBars = false
         insetsController?.hide(WindowInsetsCompat.Type.systemBars())
         onDispose {
             insetsController?.show(WindowInsetsCompat.Type.systemBars())
+            insetsController?.isAppearanceLightStatusBars = false
+            insetsController?.isAppearanceLightNavigationBars = false
             if (oldOrientation != null) activity?.requestedOrientation = oldOrientation
         }
     }

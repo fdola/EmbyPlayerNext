@@ -298,8 +298,8 @@ fun SettingsScreen(
                     SettingRow("导出运行日志", "将运行日志保存到下载目录", Icons.Default.Download, onExportLog)
                     HorizontalDivider()
                     ListItem(
-                        headlineContent = { Text("EmbyPlayerNext 2.3.31") },
-                        supportingContent = { Text("Android / Android TV (Build 168)") },
+                        headlineContent = { Text("EmbyPlayerNext 2.3.32") },
+                        supportingContent = { Text("Android / Android TV (Build 169)") },
                         leadingContent = { Icon(Icons.Default.Info, null) },
                     )
                 }

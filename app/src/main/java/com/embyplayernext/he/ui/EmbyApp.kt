@@ -78,6 +78,19 @@ fun EmbyApp(vm: EmbyViewModel = viewModel()) {
         LaunchedEffect(Unit) { loginVisible = true }
     }
 
+    val view = androidx.compose.ui.platform.LocalView.current
+    LaunchedEffect(screen) {
+        if (!view.isInEditMode && screen != AppScreen.PLAYER) {
+            val window = (view.context as? android.app.Activity)?.window
+            if (window != null) {
+                val insetsController = androidx.core.view.WindowCompat.getInsetsController(window, view)
+                insetsController.isAppearanceLightStatusBars = false
+                insetsController.isAppearanceLightNavigationBars = false
+                insetsController.show(androidx.core.view.WindowInsetsCompat.Type.systemBars())
+            }
+        }
+    }
+
     val effectiveDensity = scaledDensity
     CompositionLocalProvider(androidx.compose.ui.platform.LocalDensity provides effectiveDensity) {
         BoxWithConstraints(Modifier.fillMaxSize()) {
