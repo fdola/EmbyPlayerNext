@@ -15,7 +15,7 @@ android {
         versionCode = 169
         versionName = "2.3.32"
         ndk {
-            abiFilters += listOf("arm64-v8a")
+            abiFilters += listOf("armeabi-v7a")
         }
     }
 
